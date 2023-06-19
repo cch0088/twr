@@ -23,19 +23,17 @@ function UserControl(props) {
 
 return (
     <div id="usercontrol">
+        <span class="userbutton autowidth">🛒</span>
+        <span class="userbutton autowidth">🔍</span>
         {
             (user)
             ?
             <>
-                <span class="userbutton autowidth">🛒</span>
-                <span class="userbutton autowidth">🔍</span>
                 <span class="userbutton">My Account</span>
                 <span class="userbutton autowidth" onClick={handleLogout}>🚪 Log out {user.username}</span>
             </>
             :
             <>
-                <span class="userbutton autowidth">🛒</span>
-                <span class="userbutton autowidth">🔍</span>
                 <span class="userbutton">Sign Up</span>
                 <span class="userbutton">👤 Log In</span>
             </>
