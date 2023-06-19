@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import NavBar from './components/NavBar';
 import Header from './components/Header';
+import UserControl from './components/UserControl';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import './App.css';
@@ -42,14 +43,15 @@ function App() {
     <div>
       <Switch>
         <UserContext.Provider value={user}>
+          <Header />
+          <UserControl />
+          <NavBar />
           <Route exact path="/">
-            <Header />
-            <NavBar />
             <Home />
           </Route>
+          <Footer />
         </UserContext.Provider>
       </Switch>
-      <Footer />
     </div>
   );
 }
