@@ -13,7 +13,7 @@ function App() {
 
   const [user, setUser] = useState();
   
-  const API = "http://localhost:5555/cakecity/api";
+  const API = "https://www.travelwithreason.com:8080/api/test";
   
   // Check log in status
   const login = "/login";
