@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { React, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from '../App';
@@ -23,18 +22,18 @@ function UserControl(props) {
 
 return (
     <div id="usercontrol">
-        <span class="userbutton autowidth">🛒</span>
-        <span class="userbutton autowidth">🔍</span>
+        <span class="userbutton">🛒 Orders</span>
+        <span class="userbutton">🔍 Search</span>
         {
             (user)
             ?
             <>
                 <span class="userbutton">My Account</span>
-                <span class="userbutton autowidth" onClick={handleLogout}>🚪 Log out {user.username}</span>
+                <span class="userbutton" onClick={handleLogout}>🚪 Log out {user.username}</span>
             </>
             :
             <>
-                <span class="userbutton">Sign Up</span>
+                <span class="userbutton">🆕 Sign Up</span>
                 <span class="userbutton">👤 Log In</span>
             </>
         }

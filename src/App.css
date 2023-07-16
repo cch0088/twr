@@ -50,7 +50,7 @@ code {
   color: white;
   margin: 8px 4px 8px 4px;
   padding: 6px 8px 6px 8px;
-  width: 60px;
+  width: 75px;
   text-decoration: none;
   text-align: center;
   font-size: small;
@@ -66,12 +66,27 @@ code {
   width: auto;
 }
 
-#navigation {
+#filter-nav {
+  padding-top: 10px;
+  display: inline-block;
   text-align: center;
-  height: 48px;
 }
 
-#navigation > a {
+#home-nav-container {
+  width: 200px;
+  position: absolute;  
+}
+
+#nav-container {
+  position: absolute;
+}
+
+.navigation {
+  width: 110px;
+  margin-top: 40px;
+}
+
+.navigation > a {
   display: inline-block;
   color: black;
   margin: 10px;
@@ -81,24 +96,8 @@ code {
   border-bottom: 1px solid transparent;
 }
 
-#navigation > a:hover {
+.navigation > a:hover {
   border-bottom: 1px solid;
-}
-
-#filter-nav {
-  padding-top: 10px;
-  display: inline-block;
-  text-align: center;
-}
-
-#home-nav-container {
-  width: 200px;
-  position: absolute;
-  left: 0;
-}
-
-.age {
-  margin-left: 70px;
 }
 
 .dropdown {
@@ -217,50 +216,6 @@ code {
   margin-bottom: 20px;
 }
 
-#cakecard-container {
-  margin:10px;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.cakecard-thumbnail-container {
-  background-color: rgba(113, 231, 240, 0.8);
-}
-
-.cakecard-thumbnail-container img {
-  width: 100%;
-}
-
-.cakecard-text {
-  font-weight: bold;
-  font-size: larger;
-  text-align: center;
-  margin-top: 15px;
-}
-
-.cakecard {
-  margin: 12px;
-  padding: 10px;
-  background-color: rgba(140, 196, 248, 0.4);
-  width: 220px;
-  height: 300px;
-  box-shadow: 0 0 10px 2px gray;
-  text-shadow: 2px 2px 5px gray;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: large;
-}
-
-#cakebuilder {
-  margin-top: 60px;
-  display: inline-flex;
-  justify-content: center;
-  width: 95%;
-}
-
 #builder-frame-large {
   width: 50%;
 }
@@ -272,36 +227,6 @@ code {
 
 #builder-frame-small {
   width: 30%;
-}
-
-.cakecard-large {
-  margin: 12px;
-  padding: 10px;
-  height: 80%;
-  background-color: rgba(140, 196, 248, 0.4);
-  box-shadow: 0 0 10px 2px gray;
-  text-shadow: 2px 2px 5px gray;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: x-large;
-}
-
-.cake-option {
-  margin: 12px;
-  padding: 10px;
-  background-color: rgba(140, 196, 248, 0.4);
-  box-shadow: 0 0 10px 2px gray;
-  text-shadow: 2px 2px 5px gray;
-  display: flex;
-  flex-direction: column;
-  font-size: large;
-}
-
-.cakecard:hover {
-  cursor: pointer;
-  box-shadow: 0 0 10px 2px navy;
-  background-color: rgba(140, 196, 248, 0.7)
 }
 
 #footer {
@@ -470,20 +395,12 @@ code {
 }
 
 @media screen and (max-width: 750px) {
-  #navigation {
-    position: absolute;
-    top: 80px;
-    width: 120px;
-    height: 200px;
-  }
-
-  #navigation > a {
-    padding-top: 10px;
-    display: flex;
+  #logotext {
+    font-size: large;
   }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 640px) {
   #logo img {
     height: 60px;
   }
@@ -498,10 +415,31 @@ code {
   }
 
   #head-nav-bar {
-    height: 70px;
+    height: 75px;
   }
 
-  #navigation {
-    top: 70px;
+  #usercontrol {
+    top: 3px;
+    right: 4px;
+    width: 200px;
+    text-align: right;
+  }
+
+  #usercontrol > .userbutton {
+    margin: 3px 2px 2px 3px;
+    text-align: left;
+  }
+
+  #nav-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation {
+    margin-top: 0px;
+    text-align: center;
+    width: auto;
   }
 }
