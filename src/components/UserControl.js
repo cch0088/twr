@@ -1,6 +1,7 @@
 import { React, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from '../App';
+import Modal from "./Modal";
 
 function UserControl(props) {
 
@@ -20,21 +21,25 @@ function UserControl(props) {
         fetch(API, API_OPT).then(history.push("/"));
     }
 
+    function showModal() {
+        <Modal />
+    }
+
 return (
     <div id="usercontrol">
-        <span class="userbutton">🛒 Orders</span>
-        <span class="userbutton">🔍 Search</span>
+        <span className="userbutton">🛒 Orders</span>
+        <span className="userbutton">🔍 Search</span>
         {
             (user)
             ?
             <>
-                <span class="userbutton">My Account</span>
-                <span class="userbutton" onClick={handleLogout}>🚪 Log out {user.username}</span>
+                <span className="userbutton">My Account</span>
+                <span className="userbutton" onClick={handleLogout}>🚪 Log out {user.username}</span>
             </>
             :
             <>
-                <span class="userbutton">🆕 Sign Up</span>
-                <span class="userbutton">👤 Log In</span>
+                <span className="userbutton">🆕 Sign Up</span>
+                <span className="userbutton" onClick={showModal}>👤 Log In</span>
             </>
         }
     </div>

@@ -42,7 +42,7 @@ function Login(props) {
                         else
                         {
                             props.setUser(data);
-                            history.push("/cakecity/menu");
+                            history.push("/");
                         }
                     }
                 }
