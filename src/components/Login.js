@@ -1,7 +1,12 @@
 import { React, useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/User';
 
 function Login(props) {
+
+    const dispatch = useDispatch();
+
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -9,6 +14,9 @@ function Login(props) {
     const history = useHistory();
     
     function handleLogin(event) {
+
+        dispatch(login({name: 'TestUser', age: 20, email: 'a@a.net'}));
+
         const API = props.API + "/login";
         if (username.length > 0 && password.length > 0)
         {

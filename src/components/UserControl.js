@@ -1,12 +1,16 @@
 import { React, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { UserContext } from '../App';
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from 'react-redux';
+import { login, logout } from '../features/User';
 import Modal from "./Modal";
 
 function UserControl(props) {
 
-    const user = useContext(UserContext);
+    const user = useSelector((state) => state.user.value);
     const history = useHistory();
+
+    const dispatch = useDispatch();
 
     function handleLogout() {
         props.setUser(null);
@@ -17,8 +21,12 @@ function UserControl(props) {
             credentials: 'include',
             method: 'DELETE'
         };
+
+        dispatch(logout());
   
         fetch(API, API_OPT).then(history.push("/"));
+
+
     }
 
     function showModal() {
@@ -30,16 +38,16 @@ return (
         <span className="userbutton">🛒 Orders</span>
         <span className="userbutton">🔍 Search</span>
         {
-            (user)
+            (user.name === '')
             ?
-            <>
-                <span className="userbutton">My Account</span>
-                <span className="userbutton" onClick={handleLogout}>🚪 Log out {user.username}</span>
-            </>
-            :
             <>
                 <span className="userbutton">🆕 Sign Up</span>
                 <span className="userbutton" onClick={showModal}>👤 Log In</span>
+            </>
+            :
+            <>
+                <span className="userbutton">My Account</span>
+                <span className="userbutton" onClick={handleLogout}>🚪 Log out {user.name}</span>
             </>
         }
     </div>
