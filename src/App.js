@@ -1,22 +1,16 @@
-import { useEffect, useState, createContext } from 'react';
-import { Route, Switch } from "react-router-dom";
-
-import NavBar from './components/NavBar';
+import { Route } from "react-router-dom";
 import Header from './components/Header';
-import UserControl from './components/UserControl';
 import Footer from './components/Footer';
+import UserControl from './components/UserControl';
+import NavBar from './components/NavBar';
 import Home from './components/Home';
 import './App.css';
 
-export const UserContext = createContext();
-
 function App() {
-
-  const [user, setUser] = useState();
   
-  const API = "https://www.travelwithreason.com:8080/api/test";
+  //const API = "https://www.travelwithreason.com:8080/api/test";
   
-  // Check log in status
+  /* Check log in status
   const login = "/login";
   const API_LOGIN = API + login;
 
@@ -38,21 +32,18 @@ function App() {
       }
     )
   }, [API_LOGIN]);
+  */
 
   return (
-    <div>
-      <Switch>
-        <UserContext.Provider value={user}>
-          <Header />
-          <UserControl />
-          <NavBar />
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Footer />
-        </UserContext.Provider>
-      </Switch>
-    </div>
+    <>
+      <Header />
+      <NavBar />
+      <UserControl />
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Footer />
+    </>
   );
 }
 

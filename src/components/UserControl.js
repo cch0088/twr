@@ -1,32 +1,21 @@
-import { React, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-import { useDispatch } from 'react-redux';
-import { login, logout } from '../features/User';
+import { React } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../features/User';
 import Modal from "./Modal";
 
-function UserControl(props) {
+function UserControl() {
 
     const user = useSelector((state) => state.user.value);
-    const history = useHistory();
-
     const dispatch = useDispatch();
 
     function handleLogout() {
-        props.setUser(null);
-
-        const API = props.API + "/logout";
-        const API_OPT = {
-            mode: 'cors',
-            credentials: 'include',
-            method: 'DELETE'
-        };
-
+        // const API = props.API + "/logout";
+        // const API_OPT = {
+        //     mode: 'cors',
+        //     credentials: 'include',
+        //     method: 'DELETE'
+        // };
         dispatch(logout());
-  
-        fetch(API, API_OPT).then(history.push("/"));
-
-
     }
 
     function showModal() {
@@ -54,4 +43,3 @@ return (
     )
 }
 export default UserControl;
-
