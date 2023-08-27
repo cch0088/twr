@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f3f5;
 }
 
 code {
@@ -15,6 +16,7 @@ code {
 #head-nav-bar {
   background: rgba(0,0,0,0.8);
   height: 48px;
+  box-shadow: 0px 8px 8px lightgray;
 }
 
 .modal {
@@ -47,7 +49,7 @@ code {
 #logo {
   position: absolute;
   top: 5px;
-  left: 5px;
+  left: 32px;
   text-align: center;
 }
 
@@ -57,7 +59,7 @@ code {
 
 #logotext {
   position: absolute;
-  left: 90px;
+  left: 128px;
   top: 12px;
   color: white;
   font-size: x-large;
@@ -68,7 +70,7 @@ code {
 #usercontrol {
   position: absolute;
   top: 0px;
-  right: 8px;
+  right: 42px;
 }
 
 #usercontrol > .userbutton {
@@ -109,6 +111,7 @@ code {
 }
 
 .navigation {
+  margin-left: 32px;
   width: 110px;
   margin-top: 40px;
 }
@@ -206,6 +209,7 @@ code {
 
 #home-content {
   background-image: url('./backgrounds/background1.png');
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,18 +226,20 @@ code {
   overflow-y: scroll;
 }
 
-.home-slide {
+.slide {
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px lightgray;
   padding: 20px;
-  width: 60%;
-  background-image: linear-gradient(to right, aqua, antiquewhite);
+  width: 80%;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.home-slide img {
+.slide img {
   width: 100%;
 }
 
@@ -421,32 +427,39 @@ code {
   cursor: pointer;
 }
 
-@media screen and (max-width: 750px) {
-  #logotext {
-    font-size: large;
-  }
-}
+@media screen and (min-width: 750px) { .slide { width: 55%; } }
+@media screen and (min-width: 900px) { .slide { width: 60%; } }
+@media screen and (min-width: 1000px) { .slide { width: 65%; } }
+@media screen and (min-width: 1200px) { .slide { width: 70%; } }
+@media screen and (min-width: 1350px) { .slide { width: 75%; } }
+@media screen and (min-width: 1700px) { .slide { width: 80%; } }
+@media screen and (min-width: 2200px) { .slide { width: 85%; } }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 750px) {
+  #logo {
+    left: 3px;
+  }
+  
   #logo img {
     height: 60px;
+    margin-top: 2px;
   }
 
   #logotext {
     position: absolute;
     left: 70px;
-    top: 2px;
+    top: 5px;
     width: 70px;
     color: white;
     font-size: large;
   }
 
   #head-nav-bar {
-    height: 75px;
+    height: 77px;
   }
 
   #usercontrol {
-    top: 3px;
+    top: 2px;
     right: 4px;
     width: 200px;
     text-align: right;
@@ -468,5 +481,9 @@ code {
     margin-top: 0px;
     text-align: center;
     width: auto;
+  }
+
+  #home-content {
+    margin-top: auto;
   }
 }
