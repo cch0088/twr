@@ -4,12 +4,14 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import userReducer from './features/User';
+import userReducer from './features/UserSlice';
+import modalReducer from './features/ModalSlice';
 //import reportWebVitals from './reportWebVitals';
 
 const store = configureStore({
   reducer: {
-    user: userReducer
+    user: userReducer,
+    modal: modalReducer
   }
 });
 

@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../features/User';
+import { login } from '../features/UserSlice';
 
 function Login(props) {
 

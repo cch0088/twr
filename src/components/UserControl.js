@@ -1,11 +1,15 @@
 import { React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../features/User';
-import Modal from "./Modal";
+import { openModal } from '../features/ModalSlice';
+// import { login, logout } from '../features/User';
+import Modal from './Modal';
+import Login from './Login';
 
 function UserControl() {
 
     const user = useSelector((state) => state.user.value);
+    const modal = useSelector((state) => state.modal.value);
+
     const dispatch = useDispatch();
 
     function handleLogout() {
@@ -15,11 +19,11 @@ function UserControl() {
         //     credentials: 'include',
         //     method: 'DELETE'
         // };
-        dispatch(logout());
+        // dispatch(logout());
     }
 
     function showModal() {
-        <Modal />
+        dispatch(openModal());
     }
 
 return (
@@ -35,10 +39,11 @@ return (
             </>
             :
             <>
-                <span className="userbutton">My Account</span>
-                <span className="userbutton" onClick={handleLogout}>🚪 Log out {user.name}</span>
+                <span className="userbutton">👤 My Account</span>
+                <span className="userbutton" onClick={handleLogout}>🚪 Log Out {user.name}</span>
             </>
         }
+        {(modal.show === true) ? <Modal children={<Login />} /> : null}
     </div>
     )
 }

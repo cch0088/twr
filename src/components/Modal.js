@@ -1,19 +1,24 @@
 import React from "react";
+import { closeModal } from "../features/ModalSlice";
+import { useDispatch } from 'react-redux';
 
-function Modal({handleClose, show, children}) 
+function Modal({children}) 
 {
-    //const showHideClassName = show ? "modal display-block" : "modal display-none";
+    const dispatch = useDispatch();
+
+    const handleClose = () => {
+        dispatch(closeModal());
+    };
 
     return (
-        <div className='modal display-block'>
+        <div className="modal">
             <section className='modal-main'>
                 {children}
                 <button type="button" onClick={handleClose}>
                     Close
                 </button>
             </section>
-        </div>
-    );
+        </div>);
 };
 
 export default Modal;

@@ -38,14 +38,6 @@ code {
   transform: translate(-50%,-50%);
 }
 
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
-
 #logo {
   position: absolute;
   top: 5px;
