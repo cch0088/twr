@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
-// import { login, logout } from '../features/User';
+import { logout } from '../features/UserSlice';
 import Modal from './Modal';
 import Login from './Login';
 
@@ -19,7 +19,7 @@ function UserControl() {
         //     credentials: 'include',
         //     method: 'DELETE'
         // };
-        // dispatch(logout());
+        dispatch(logout());
     }
 
     function showModal() {
@@ -46,7 +46,7 @@ return (
         {
             (modal.show === true)
             ?
-                <Modal children={<Login />} />
+                <Modal children={<Login />}/>
             :
                 null
         }
