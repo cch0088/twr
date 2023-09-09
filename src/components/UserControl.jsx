@@ -39,8 +39,8 @@ return (
             </>
             :
             <>
-                <span className="userbutton">👤 My Account</span>
-                <span className="userbutton" onClick={handleLogout}>🚪 Log Out {user.name}</span>
+                <span className="userbutton">👤 Account</span>
+                <span className="userbutton" onClick={handleLogout}>🚪 Log Out</span>
             </>
         }
         {

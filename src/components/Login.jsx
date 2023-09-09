@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../features/UserSlice';
+import { closeModal } from '../features/ModalSlice';
 
 function Login(props) {
 
@@ -11,55 +11,54 @@ function Login(props) {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const history = useHistory();
-    
     function handleLogin(event) {
 
         dispatch(login({name: 'TestUser', age: 20, email: 'a@a.net'}));
+        dispatch(closeModal());
 
-        const API = props.API + "/login";
-        if (username.length > 0 && password.length > 0)
-        {
-            setError("");
+    //     const API = props.API + "/login";
+    //     if (username.length > 0 && password.length > 0)
+    //     {
+    //         setError("");
 
-            const formData = {
-                username: username,
-                password: password
-            };
+    //         const formData = {
+    //             username: username,
+    //             password: password
+    //         };
 
-            const API_OPT = {
-                method: 'POST',
-                mode: 'cors',
-                credentials: 'include',
-                headers: { 
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            };
+    //         const API_OPT = {
+    //             method: 'POST',
+    //             mode: 'cors',
+    //             credentials: 'include',
+    //             headers: { 
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(formData)
+    //         };
             
-            fetch(API, API_OPT)
-            .then(resp => resp.json())
-            .then(data => {
-                if (data) {
-                    for (let key in data)
-                    {
-                        if (key === 'error')
-                        {
-                            setError(data[key]);
-                        }
-                        else
-                        {
-                            props.setUser(data);
-                            history.push("/");
-                        }
-                    }
-                }
-            })
-        }
-        else
-        {
-            setError("Missing password or username!");
-        }
+    //         fetch(API, API_OPT)
+    //         .then(resp => resp.json())
+    //         .then(data => {
+    //             if (data) {
+    //                 for (let key in data)
+    //                 {
+    //                     if (key === 'error')
+    //                     {
+    //                         setError(data[key]);
+    //                     }
+    //                     else
+    //                     {
+    //                         props.setUser(data);
+    //                         history.push("/");
+    //                     }
+    //                 }
+    //             }
+    //         })
+    //     }
+    //     else
+    //     {
+    //         setError("Missing password or username!");
+    //     }
     }
 
     function handleUsername(event) {
@@ -78,9 +77,9 @@ return (
         <input className="field-login" type="text" name="username" onChange={handleUsername} value={username}/>
         <div className="label-login">Password</div>
         <input className="field-login" type="password" name="password" onChange={handlePassword} value={password}/>
-        <a className="link-label" href="/cakecity/forgot">Forgot Password</a>
+        <a className="link-label" href="/forgot">Forgot Password</a>
         <input className="button" type="button" name="login" value="Sign In" onClick={handleLogin} />
-        <a className="link-label" href="/cakecity/register">Create Account</a>
+        <a className="link-label" href="/register">Create Account</a>
     </div>
     )
 }
