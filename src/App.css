@@ -4,7 +4,6 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #f0f3f5;
 }
 
@@ -30,9 +29,6 @@ code {
 
 .modal-main {
   position: fixed;
-  background: white;
-  width: 80%;
-  height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -265,7 +261,6 @@ code {
 }
 
 #site-form {
-  margin-top: 12vh;
   width: 330px;
   background-color: rgba(0, 0, 128, 0.7);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);

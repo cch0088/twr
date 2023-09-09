@@ -11,12 +11,9 @@ function Modal({children})
     };
 
     return (
-        <div className="modal">
+        <div className="modal" onClick={handleClose}>
             <section className='modal-main'>
                 {children}
-                <button type="button" onClick={handleClose}>
-                    Close
-                </button>
             </section>
         </div>);
 };

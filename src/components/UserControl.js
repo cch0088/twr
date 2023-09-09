@@ -43,7 +43,13 @@ return (
                 <span className="userbutton" onClick={handleLogout}>🚪 Log Out {user.name}</span>
             </>
         }
-        {(modal.show === true) ? <Modal children={<Login />} /> : null}
+        {
+            (modal.show === true)
+            ?
+                <Modal children={<Login />} />
+            :
+                null
+        }
     </div>
     )
 }
