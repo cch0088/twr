@@ -25,6 +25,7 @@ code {
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
 }
 
 .modal-main {
@@ -255,7 +256,7 @@ code {
 #site-form {
   width: 330px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 128, 0.7);
+  background-color: rgba(0, 0, 128, 0.8);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
   color: azure;
   padding: 10px;
@@ -336,6 +337,7 @@ code {
   width: 140px;
   height: 40px;
   font-weight: bold;
+  font-size: large;
 }
 
 .checkbox {
