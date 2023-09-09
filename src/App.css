@@ -18,7 +18,7 @@ code {
   box-shadow: 0px 8px 8px lightgray;
 }
 
-.modal {
+.modal-bg {
   position: fixed;
   top: 0;
   left: 0;
