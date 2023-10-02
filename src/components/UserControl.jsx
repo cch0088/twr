@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
 import { logout } from '../features/UserSlice';
 import Modal from './Modal';
-import Login from './Login';
+import LoginDialog from './LoginDialog';
 
 function UserControl() {
 
@@ -31,7 +31,7 @@ return (
         <span className="userbutton">🛒 Orders</span>
         <span className="userbutton">🔍 Search</span>
         {
-            (user.name === '')
+            (user.current_user.name === '')
             ?
             <>
                 <span className="userbutton">🆕 Sign Up</span>
@@ -44,11 +44,7 @@ return (
             </>
         }
         {
-            (modal.show === true)
-            ?
-                <Modal children={<Login />}/>
-            :
-                null
+            modal.show && <Modal children={<LoginDialog />}/>
         }
     </div>
     )
