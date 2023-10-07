@@ -12,18 +12,16 @@ function LoginForm() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
-
-
     function handleLogin(e) {
         e.preventDefault();
-        
-        loginService(username, password).then(user => {
+
+        loginService(username, password)
+        .then(user => {
             if (user.current_user) {
                 dispatch(login(user));
                 dispatch(closeModal());
             }
-            else
-            {
+            else {
                 setError(user.message);
             }
         });
@@ -37,42 +35,40 @@ function LoginForm() {
         setPassword(event.target.value);
     }
 
-return (
-    <form id="site-form">
-        <div className="title-label">SIGN IN</div>
-        
-        {(error) ? <div className='error-label'>{error}</div> : null}
-        
-        <div className="label-login">Username</div>
-        
-        <input className="field-login" 
-            type="text"
-            name="username"
-            onChange={handleUsername}
-            value={username}
-        />
+return (<form id="site-form">
+    <div className="title-label">SIGN IN</div>
+    
+    {(error) ? <div className='error-label'>{error}</div> : null}
+    
+    <div className="label-login">Username</div>
+    
+    <input className="field-login" 
+        type="text"
+        name="username"
+        onChange={handleUsername}
+        value={username}
+    />
 
-        <div className="label-login">Password</div>
+    <div className="label-login">Password</div>
 
-        <input className="field-login"
-            type="password"
-            name="password"
-            onChange={handlePassword}
-            value={password}
-        />
+    <input className="field-login"
+        type="password"
+        name="password"
+        onChange={handlePassword}
+        value={password}
+    />
 
-        <a className="link-label" href="/forgot">Forgot Password</a>
+    <a className="link-label" href="/forgot">Forgot Password</a>
 
-        <input className="button"
-            type="submit"
-            name="login"
-            value="Sign In"
-            onClick={e => handleLogin(e)}
-        />
+    <input className="button"
+        type="submit"
+        name="login"
+        value="Sign In"
+        onClick={e => handleLogin(e)}
+    />
 
-        <a className="link-label" href="/register">Create Account</a>
-    </form>
-    )
+    <a className="link-label" href="/register">Create Account</a>
+    </form>)
 }
 
 export default LoginForm;

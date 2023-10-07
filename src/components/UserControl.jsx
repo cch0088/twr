@@ -14,12 +14,12 @@ function UserControl() {
     const dispatch = useDispatch();
 
     function handleLogout() {
-        logoutService(user.csrf_token, user.logout_token).then(user => {
+        logoutService(user.csrf_token, user.logout_token)
+        .then(user => {
             if (user.message) {
                 console.log(user.message);
             }
-            else
-            {
+            else {
                 dispatch(logout());
             }
         });
