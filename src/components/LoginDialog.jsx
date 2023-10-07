@@ -1,8 +1,8 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../features/UserSlice';
-import { closeModal } from '../features/ModalSlice';
 import { loginService } from '../features/UserServices';
+import { closeModal } from '../features/ModalSlice';
 
 function LoginDialog() {
 

@@ -2,6 +2,7 @@ import { React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
 import { logout } from '../features/UserSlice';
+import { logoutService } from '../features/UserServices';
 import Modal from './Modal';
 import LoginDialog from './LoginDialog';
 
@@ -13,13 +14,15 @@ function UserControl() {
     const dispatch = useDispatch();
 
     function handleLogout() {
-        // const API = props.API + "/logout";
-        // const API_OPT = {
-        //     mode: 'cors',
-        //     credentials: 'include',
-        //     method: 'DELETE'
-        // };
-        dispatch(logout());
+        logoutService(user.csrf_token, user.logout_token).then(user => {
+            if (user.message) {
+                console.log(user.message);
+            }
+            else
+            {
+                dispatch(logout());
+            }
+        });
     }
 
     function showModal() {
