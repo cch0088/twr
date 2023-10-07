@@ -18,8 +18,14 @@ export async function loginService(username, password) {
                 'pass': password
             })
         };
+
+        const params = '?' + new URLSearchParams({
+            '_format': 'json',
+        })
+
         try {
-            const response = await fetch(API_LOGIN, API_POST_LOGIN_PROPS);
+            console.log(API_LOGIN + params);
+            const response = await fetch(API_LOGIN + params, API_POST_LOGIN_PROPS);
             const data = await response.json();
 
             for (let key in data)
@@ -67,9 +73,17 @@ export async function logoutService(csrf_token, logout_token) {
             'X-CSRF-Token': csrf_token
         }
     };
+    
+    const params = '?' + new URLSearchParams({
+        '_format': 'json',
+        'token': logout_token
+    })
+
     try {
-        const response = await fetch(API_LOGOUT + logout_token, API_POST_LOGOUT_PROPS);
+        console.log(API_LOGOUT + params);
+        const response = await fetch(API_LOGOUT + params, API_POST_LOGOUT_PROPS);
         const data = await response.json();
+        console.log(csrf_token);
 
         for (let key in data)
         {
