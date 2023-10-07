@@ -2,7 +2,9 @@ import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../features/UserSlice';
 import { loginService } from '../features/UserServices';
+import { sessionTokenService } from '../features/UserServices';
 import { closeModal } from '../features/ModalSlice';
+import { newSession } from '../features/SessionSlice';
 
 function LoginDialog() {
 
@@ -13,14 +15,24 @@ function LoginDialog() {
     const [error, setError] = useState("");
 
     function handleLogin(event) {
-        loginService(username, password).then(user => {
-            if (user.current_user) {
-                dispatch(login(user));
-                dispatch(closeModal());
+        sessionTokenService().then(token => {
+            if (token.csrf_token) {
+                dispatch(newSession(token));
+
+                loginService(username, password).then(user => {
+                    if (user.current_user) {
+                        dispatch(login(user));
+                        dispatch(closeModal());
+                    }
+                    else
+                    {
+                        setError(user.message);
+                    }
+                });
+
             }
-            else
-            {
-                setError(user.message);
+            else {
+                setError(token.message);
             }
         });
     }

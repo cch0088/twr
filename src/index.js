@@ -6,10 +6,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import userReducer from './features/UserSlice';
 import modalReducer from './features/ModalSlice';
+import sessionReducer from './features/SessionSlice';
 //import reportWebVitals from './reportWebVitals';
 
 const store = configureStore({
   reducer: {
+    session: sessionReducer,
     user: userReducer,
     modal: modalReducer
   }
