@@ -8,8 +8,8 @@ export async function loginService(username, password) {
     {
         const API_POST_LOGIN_PROPS = {
             method: 'POST',
-            //mode: 'cors',
-            //credentials: 'include',
+            mode: 'cors',
+            credentials: 'include',
             headers: { 
                 'Content-Type': 'application/json'
             },
@@ -50,24 +50,11 @@ export async function loginService(username, password) {
     }
 };
 
-export async function sessionTokenService() {
-    try {
-        const response = await fetch(API_SESSION_TOKEN);
-        const data = await response.text();
-
-        return {"csrf_token": data};
-    }
-    catch {
-        return {"message": "There was a problem with your session."};
-    }
-}
-
 export async function logoutService(csrf_token, logout_token) {
     const API_POST_LOGOUT_PROPS = {
         method: 'POST',
-        //mode: 'cors',
-        //credentials: 'include',
-        authentication: 'cookie',
+        mode: 'cors',
+        credentials: 'include',
         headers: { 
             'Content-Type': 'application/json',
             'X-CSRF-Token': csrf_token
@@ -102,3 +89,14 @@ export async function logoutService(csrf_token, logout_token) {
     }
 };
 
+export async function sessionTokenService() {
+    try {
+        const response = await fetch(API_SESSION_TOKEN);
+        const data = await response.text();
+
+        return {"csrf_token": data};
+    }
+    catch {
+        return {"message": "There was a problem with your session."};
+    }
+}
