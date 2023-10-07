@@ -71,8 +71,6 @@ export async function logoutService(csrf_token, logout_token) {
         const response = await fetch(API_LOGOUT + logout_token, API_POST_LOGOUT_PROPS);
         const data = await response.json();
 
-        console.log(API_SESSION_TOKEN);
-
         for (let key in data)
         {
             if (key === 'message')

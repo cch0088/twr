@@ -29,9 +29,9 @@ function UserControl() {
     }
 
     function handleAccount() {
-        console.log(session.csrf_token);
-        console.log(user.csrf_token);
-        console.log(user.logout_token);
+        console.log("Session CSRF Token: " + session.csrf_token);
+        console.log("User CSRF Token: " + user.csrf_token);
+        console.log("Logout Token: " + user.logout_token);
     }
 
     function showModal() {
