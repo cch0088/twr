@@ -25,6 +25,11 @@ function UserControl() {
         });
     }
 
+    function handleAccount() {
+        console.log(user.csrf_token);
+        console.log(user.logout_token);
+    }
+
     function showModal() {
         dispatch(openModal());
     }
@@ -42,7 +47,7 @@ return (
             </>
             :
             <>
-                <span className="userbutton">👤 Account</span>
+                <span className="userbutton" onClick={handleAccount}>👤 Account</span>
                 <span className="userbutton" onClick={handleLogout}>🚪 Log Out</span>
             </>
         }

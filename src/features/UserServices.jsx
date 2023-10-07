@@ -10,7 +10,7 @@ export async function loginService(username, password) {
             method: 'POST',
             //mode: 'cors',
             //credentials: 'include',
-            authentication: cookie,
+            authentication: 'cookie',
             headers: { 
                 'Content-Type': 'application/json'
             },
@@ -45,12 +45,12 @@ export async function loginService(username, password) {
     }
 };
 
-export async function logoutService(logout_token, csrf_token) {
+export async function logoutService(csrf_token, logout_token) {
     const API_POST_LOGOUT_PROPS = {
         method: 'POST',
         //mode: 'cors',
         //credentials: 'include',
-        authentication: cookie,
+        authentication: 'cookie',
         headers: { 
             'Content-Type': 'application/json',
             'X-CSRF-Token': csrf_token
