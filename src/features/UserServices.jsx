@@ -1,4 +1,6 @@
-import { API_LOGIN, API_LOGOUT, API_SESSION_TOKEN } from '../config';
+import { LOGIN as API_LOGIN } from '../config';
+import { LOGOUT as API_LOGOUT } from '../config';
+import { SESSION_TOKEN as API_SESSION_TOKEN } from '../config';
 
 function UserServices() {}
 export default UserServices;

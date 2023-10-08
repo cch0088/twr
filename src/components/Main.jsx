@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-import { API_FRONT_PAGE } from "../config";
+import { API } from "../config";
 import { getContent } from "../features/PageServices";
 import { useDispatch, useSelector } from 'react-redux';
 import { pushContent } from "../features/ContentSlice";
 import Slide from "./Slide";
 
-function Home() {
+function Main({route}) {
 
     const dispatch = useDispatch();
     const content = useSelector(state => state.content.value);
 
     useEffect(() => {
-        getContent(API_FRONT_PAGE)
+        getContent(API + route)
         .then(object => {
             dispatch(pushContent(object));
         });
@@ -24,4 +24,4 @@ function Home() {
     </div>
     )
 }
-export default Home;
+export default Main;
