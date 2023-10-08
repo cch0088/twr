@@ -40,47 +40,39 @@ function LoginForm() {
         }
     }
 
-    function handleUsername(event) {
-        setUserName(event.target.value);
-    }
-
-    function handlePassword(event) {
-        setPassword(event.target.value);
-    }
-
 return (<form id="site-form">
-    <div className="title-label">SIGN IN</div>
-    
-    {(error) ? <div className='error-label'>{error}</div> : null}
-    
-    <div className="label-login">Username</div>
-    
-    <input className="field-login" 
-        type="text"
-        name="username"
-        onChange={handleUsername}
-        value={username}
-    />
+        <div className="title-label">SIGN IN</div>
+        
+        {(error) ? <div className='error-label'>{error}</div> : null}
+        
+        <div className="label-login">Username</div>
+        
+        <input className="field-login" 
+            type="text"
+            name="username"
+            onChange={(e) => { setUserName(e.target.value); }}
+            value={username}
+        />
 
-    <div className="label-login">Password</div>
+        <div className="label-login">Password</div>
 
-    <input className="field-login"
-        type="password"
-        name="password"
-        onChange={handlePassword}
-        value={password}
-    />
+        <input className="field-login"
+            type="password"
+            name="password"
+            onChange={(e) => { setPassword(e.target.value); }}
+            value={password}
+        />
 
-    <a className="link-label" href="/forgot">Forgot Password</a>
+        <a className="link-label" href="/forgot">Forgot Password</a>
 
-    <input className="button"
-        type="submit"
-        name="login"
-        value="Sign In"
-        onClick={e => handleLogin(e)}
-    />
+        <input className="button"
+            type="submit"
+            name="login"
+            value="Sign In"
+            onClick={(e) => { handleLogin(e); }}
+        />
 
-    <a className="link-label" href="/register">Create Account</a>
+        <a className="link-label" href="/register">Create Account</a>
     </form>)
 }
 
