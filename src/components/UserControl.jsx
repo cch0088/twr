@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
 import { logout } from '../features/UserSlice';
 import { logoutService } from '../features/UserServices';
+import { endSession } from '../features/SessionSlice';
 import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
 
@@ -19,6 +20,7 @@ function UserControl() {
         .then(resp => {
             console.log(resp.message);
             dispatch(logout());
+            dispatch(endSession());
         });
     }
 
