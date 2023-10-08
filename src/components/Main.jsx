@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { API } from "../config";
 import { getContent } from "../features/PageServices";
 import { useDispatch, useSelector } from 'react-redux';
 import { pushContent } from "../features/ContentSlice";
@@ -11,7 +10,7 @@ function Main({route}) {
     const content = useSelector(state => state.content.value);
 
     useEffect(() => {
-        getContent(API + route)
+        getContent(route)
         .then(object => {
             dispatch(pushContent(object));
         });
