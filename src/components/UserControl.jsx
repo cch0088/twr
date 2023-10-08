@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
 import { logout } from '../features/UserSlice';
@@ -11,6 +11,7 @@ function UserControl() {
     const user = useSelector(state => state.user.value);
     const modal = useSelector(state => state.modal.value);
 
+    const history = useHistory();
     const dispatch = useDispatch();
 
     function handleLogout() {
@@ -21,36 +22,29 @@ function UserControl() {
         });
     }
 
-    function handleAccount() {
-        console.log(user.csrf_token);
-        console.log(user.logout_token);
-    }
-
-    function showModal() {
+    function handleLogin() {
         dispatch(openModal());
     }
 
 return (
-    <div id="usercontrol">
-        <span className="userbutton">🛒 Orders</span>
-        <span className="userbutton">🔍 Search</span>
-        {
-            (user.current_user.name === '')
-            ?
+        <div id="usercontrol">
+            { modal.show && <Modal children={ <LoginForm /> }/> }
             <>
-                <span className="userbutton">🆕 Sign Up</span>
-                <span className="userbutton" onClick={showModal}>👤 Log In</span>
+                <span className="userbutton" onClick={() => { history.push("/orders") }}>🛒 Orders</span>
+                <span className="userbutton" onClick={() => { history.push("/search") }}>🔍 Search</span>
             </>
-            :
-            <>
-                <span className="userbutton" onClick={handleAccount}>👤 Account</span>
-                <span className="userbutton" onClick={handleLogout}>🚪 Log Out</span>
-            </>
-        }
-        {
-            modal.show && <Modal children={<LoginForm />}/>
-        }
-    </div>
+            {
+                (user.current_user.name === '') ?
+                <>
+                    <span className="userbutton" onClick={() => { history.push("/register") }}>🆕 Sign Up</span>
+                    <span className="userbutton" onClick={handleLogin}>👤 Log In</span>
+                </> :
+                <>
+                    <span className="userbutton" onClick={() => { history.push("/account") }}>👤 Account</span>
+                    <span className="userbutton" onClick={handleLogout}>🚪 Log Out</span>
+                </>
+            }
+        </div>
     )
 }
 export default UserControl;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { API_FRONT_PAGE } from "../config";
 import { getContent } from "../features/PageServices";
 import { useDispatch, useSelector } from 'react-redux';

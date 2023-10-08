@@ -1,5 +1,3 @@
-import React from "react";
-
 function Slide({content}) {
     if (content.message) {
         return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { closeModal } from '../features/ModalSlice';
 import { useDispatch } from 'react-redux';
 
