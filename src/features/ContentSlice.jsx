@@ -9,12 +9,12 @@ const initialStateValue = [
         ],
         'title': [
             {
-                'value': '<p>Loading...</p>'
+                'value': 'Loading...'
             }
         ],
         'body': [
             {
-                'value': '<p>Loading...</p>'
+                'value': 'Loading...'
             }
         ]
     }

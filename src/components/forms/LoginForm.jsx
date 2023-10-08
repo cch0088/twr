@@ -1,7 +1,8 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/UserSlice';
-import { loginService } from '../../features/UserServices';
+import { newSession } from '../../features/SessionSlice';
+import { loginService, sessionTokenService } from '../../features/UserServices';
 import { closeModal } from '../../features/ModalSlice';
 
 function LoginForm() {
@@ -15,16 +16,28 @@ function LoginForm() {
     function handleLogin(e) {
         e.preventDefault();
 
-        loginService(username, password)
-        .then(user => {
-            if (user.current_user) {
-                dispatch(login(user));
-                dispatch(closeModal());
-            }
-            else {
-                setError(user.message);
-            }
-        });
+        if (username.length > 0 && password.length > 0) {
+            sessionTokenService().then(token => {
+                if (token.csrf_token) {
+                    dispatch(newSession(token));
+                    loginService(username, password, token.csrf_token)
+                    .then(user => {
+                        if (user.current_user) {
+                            dispatch(login(user));
+                            dispatch(closeModal());
+                        }
+                        else {
+                            setError(user.message);
+                        }
+                    });
+                }
+                else {
+                    setError(token.message);
+                }
+            });
+        } else {
+            setError("Missing username or password!");
+        }
     }
 
     function handleUsername(event) {
