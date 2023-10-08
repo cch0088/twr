@@ -1,5 +1,3 @@
-import { API } from '../config';
-
 function PageServices() {}
 export default PageServices;
 
@@ -9,7 +7,7 @@ export async function getContent(fromUrl) {
     })
 
     try {
-        const response = await fetch(API + fromUrl + params);
+        const response = await fetch(fromUrl + params);
         const data = await response.json();
         return data;
     }
