@@ -12,6 +12,6 @@ export async function getContent(fromUrl) {
         return data;
     }
     catch {
-        return {"message": "Access Error Loading Slide"};
+        return {"message": "Access Error"};
     }
 };
