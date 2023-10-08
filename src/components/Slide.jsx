@@ -1,20 +1,29 @@
 import React from "react";
 
 function Slide({content}) {
-    let renderContent = null;
-
     if (content.message) {
-        renderContent = { __html: content.message };
+        return (
+            <>
+                <div className="slide">
+                    <span><p>{content.message}</p></span>
+                </div>
+            </>
+        )
     }
     else {
-        renderContent = { __html: content[0].body[0].value };
+        return (
+            <>
+                {
+                    content.map(c => {
+                        return (
+                        <div className="slide">
+                            <span dangerouslySetInnerHTML={{ __html: c.body[0].value }}/>
+                        </div>)
+                    })
+                }
+            </>
+        );
     }
-    
-    return (
-        <div className="slide">
-            <div className="caption"><span dangerouslySetInnerHTML={renderContent} /></div>
-        </div>
-    );
 }
 
 export default Slide;

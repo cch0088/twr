@@ -9,10 +9,11 @@ function Home() {
     const dispatch = useDispatch();
     const content = useSelector(state => state.content.value);
 
+    // eslint-disable-next-line
     useEffect(() => {
         getContent("/test")
         .then(object => {
-            dispatch(pushContent(object))
+            dispatch(pushContent(object));
         });
     },[]);
 

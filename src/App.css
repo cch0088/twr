@@ -224,7 +224,7 @@ code {
   width: 100%;
 }
 
-.caption {
+p {
   font-size: x-large;
   font-weight: bold;
   margin-bottom: 20px;

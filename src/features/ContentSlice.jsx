@@ -4,7 +4,7 @@ const initialStateValue = [
     {
         'body': [
             {
-                'value': 'No Content'
+                'value': '<p>Loading...</p>'
             }
         ]
     }
