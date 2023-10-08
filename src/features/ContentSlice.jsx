@@ -2,6 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialStateValue = [
     {
+        'nid': [
+            {
+                'value': '0'
+            }
+        ],
+        'title': [
+            {
+                'value': '<p>Loading...</p>'
+            }
+        ],
         'body': [
             {
                 'value': '<p>Loading...</p>'
