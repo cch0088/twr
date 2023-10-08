@@ -7,13 +7,15 @@ import { Provider } from 'react-redux';
 import userReducer from './features/UserSlice';
 import modalReducer from './features/ModalSlice';
 import sessionReducer from './features/SessionSlice';
+import contentReducer from './features/ContentSlice'
 //import reportWebVitals from './reportWebVitals';
 
 const store = configureStore({
   reducer: {
     session: sessionReducer,
     user: userReducer,
-    modal: modalReducer
+    modal: modalReducer,
+    content: contentReducer
   }
 });
 

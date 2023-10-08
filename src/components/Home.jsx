@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getContent } from "../features/PageServices";
+import { useDispatch, useSelector } from 'react-redux';
+import { pushContent } from "../features/ContentSlice";
+import Slide from "./Slide";
 
 function Home() {
 
-return(
+    const dispatch = useDispatch();
+    const content = useSelector(state => state.content.value);
+
+    useEffect(() => {
+        getContent("/test")
+        .then(object => {
+            dispatch(pushContent(object))
+        });
+    },[]);
+
+    return(
     <div id="home-content">
-        <div className="slide">
-            <div className="caption">
-                Website is under construction
-            </div>
-        </div>
+        <Slide content={content} />
     </div>
-)
+    )
 }
 export default Home;
