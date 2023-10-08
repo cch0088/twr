@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { API_FRONT_PAGE } from "../config";
 import { getContent } from "../features/PageServices";
 import { useDispatch, useSelector } from 'react-redux';
 import { pushContent } from "../features/ContentSlice";
@@ -9,12 +10,12 @@ function Home() {
     const dispatch = useDispatch();
     const content = useSelector(state => state.content.value);
 
-    // eslint-disable-next-line
     useEffect(() => {
-        getContent("/test")
+        getContent(API_FRONT_PAGE)
         .then(object => {
             dispatch(pushContent(object));
         });
+        // eslint-disable-next-line
     },[]);
 
     return(
