@@ -15,9 +15,10 @@ function UserControl() {
 
     function handleLogout() {
         logoutService(user.csrf_token, user.logout_token)
-        .then(user => {
-            if (user.message) {
-                console.log(user.message);
+        .then(resp => {
+            if (resp.message) {
+                console.log(resp.message);
+                dispatch(logout());
             }
             else {
                 dispatch(logout());

@@ -51,7 +51,7 @@ export async function logoutService(csrf_token, logout_token) {
 
     try {
         const response = await fetch(API_LOGOUT + params, options);
-        const data = await response.json();
+        const data = await response.text();
         return data;
     }
     catch {
